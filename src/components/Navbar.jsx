@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const Navbar = () => {
   return (
@@ -6,12 +6,11 @@ const Navbar = () => {
       <div className="flex items-center justify-between">
         {/* Left Side: Logo */}
         <div className="flex items-center gap-2 text-white font-semibold text-lg cursor-pointer">
-          {/* You can replace this SVG with your own logo image */}
-          <svg 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
             className="w-6 h-6 text-white"
           >
             <circle cx="12" cy="12" r="10" />
@@ -24,7 +23,9 @@ const Navbar = () => {
         {/* Right Side: Links */}
         <div className="flex gap-6 text-sm font-medium text-gray-300">
           <a href="#" className="hover:text-white transition-colors duration-200">Home</a>
-          <a href="#" className="hover:text-white transition-colors duration-200">Docs</a>
+          <a href="#" className="hover:text-white transition-colors duration-200">About Me</a>
+          <a href="#" className="hover:text-white transition-colors duration-200">Projects</a>
+          <a href="#" className="hover:text-white transition-colors duration-200">Contact Me</a>
         </div>
       </div>
     </nav>
