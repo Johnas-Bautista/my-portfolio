@@ -1,13 +1,20 @@
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import Home from "./components/Home"
+import Navbar from "./components/Navbar"
+import About from "./components/About"
+import Projects from "./components/Projects"
 
 function App() {
   const [count, setCount] = useState(0)
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <p>{count}</p>
-      <Button onClick ={() => {setCount(count + 1)}}>Click me</Button>
-    </div>
+    <>
+    <Navbar />
+    <Home />
+    <About />
+    <Projects />
+    </>
+
   )
 }
 
