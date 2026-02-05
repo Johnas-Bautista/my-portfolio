@@ -4,7 +4,7 @@ export default function About() {
 
     return(
         <>
-        <div>
+        <div className="w-full h-screen relative bg-white"> 
             <p>Hellowrold</p>
         </div>
         </>
