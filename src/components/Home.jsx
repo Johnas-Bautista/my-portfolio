@@ -1,5 +1,6 @@
 import DarkVeil from './ui/DarkVeil';
 import AnimatedContent from './ui/AnimatedContent';
+import SpotlightCard from './ui/SpotlightCard';
 
 export default function Home() {
     return (
@@ -31,7 +32,29 @@ export default function Home() {
                 threshold={0.1}
                 delay={0}
             >
-                <div className="text-white text-4xl font-bold">Content to Animate</div>
+                <div className="flex gap-4">
+                    <SpotlightCard
+                        className="p-10 max-w-md text-center"
+                        spotlightColor="rgba(255, 255, 255, 0.15)" // Optional: Adjust glow color
+                    >
+                        <h1 className="text-white text-4xl font-bold mb-4">
+                            Hello World
+                        </h1>
+                        <p className="text-neutral-400">
+                            This content is now inside a Spotlight Card, which is being animated by AnimatedContent.
+                        </p>
+                    </SpotlightCard>
+                    <SpotlightCard
+                        className="p-10 max-w-md min-w-sm text-center"
+                        spotlightColor="rgba(255, 255, 255, 0.15)">
+                        <h1 className="text-white text-4xl font-bold mb-4">
+                            Hello World
+                        </h1>
+                        <p className="text-neutral-400">
+                            This content is now inside a Spotlight Card, which is being animated by AnimatedContent.
+                        </p>
+                    </SpotlightCard>
+                </div>
             </AnimatedContent>
         </div>
     )
