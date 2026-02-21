@@ -22,7 +22,7 @@ const Navbar = () => {
             <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
             <path d="M2 12h20" />
           </svg>
-          <span>React Bits</span>
+          <span>Johnas J. Bautista</span>
         </div>
 
         {/* Desktop Links (Hidden on Mobile) */}
