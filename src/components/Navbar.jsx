@@ -1,13 +1,12 @@
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ scrollToSection, refs }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav 
-      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-full max-w-[600px] border border-white/10 bg-black/50 backdrop-blur-md 
-        transition-all duration-300 ease-in-out ${isOpen ? "rounded-3xl p-6" : "rounded-3xl px-6 py-3"}`}
-    >
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-full max-w-150 border border-white/10 bg-gray-800/40 backdrop-blur-md 
+        transition-all duration-300 ease-in-out ${isOpen ? "rounded-3xl p-6" : "rounded-3xl px-6 py-3"}`}>
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2 text-white font-semibold text-lg cursor-pointer select-none">
@@ -27,10 +26,10 @@ const Navbar = () => {
 
         {/* Desktop Links (Hidden on Mobile) */}
         <div className="hidden md:flex gap-6 text-sm font-medium text-gray-300">
-          <a href="#" className="hover:text-white transition-colors duration-200">Home</a>
-          <a href="#" className="hover:text-white transition-colors duration-200">About Me</a>
-          <a href="#" className="hover:text-white transition-colors duration-200">Projects</a>
-          <a href="#" className="hover:text-white transition-colors duration-200">Contact Me</a>
+          <button onClick={() => scrollToSection(refs.homeRef)} className="hover:text-white transition-colors duration-200">Home</button>
+          <button onClick={() => scrollToSection(refs.aboutRef)} className="hover:text-white transition-colors duration-200">About Me</button>
+          <button onClick={() => scrollToSection(refs.projectsRef)} className="hover:text-white transition-colors duration-200">Projects</button>
+          <button onClick={() => scrollToSection(refs.contactRef)} className="hover:text-white transition-colors duration-200">Contact Me</button>
         </div>
 
         {/* Mobile Menu Button (Hamburger) */}
