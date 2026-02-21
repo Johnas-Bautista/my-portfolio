@@ -1,12 +1,17 @@
+import {forwardRef} from 'react';
+import Footer from './Footer';
 
-export default function Contact() {
+const Contact = forwardRef((props, ref) => {
     return(
         <>
-        <div className="w-full h-screen relative bg-blue-400 overflow-y-auto flex items-center justify-center"> 
+        <section ref={ref} id="contact" className="relative min-h-screen w-full bg-blend-overlay flex items-center justify-center overflow-hidden"> 
             <div className="relative z-10 flex min-h-screen items-center justify-center">
 
             </div>
-        </div>
+        </section>
+        <Footer />
         </>
     )
-}
+});
+
+export default Contact;

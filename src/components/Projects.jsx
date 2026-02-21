@@ -1,11 +1,13 @@
+import {forwardRef} from 'react';
 
-
-export default function Projects() {
+const Projects = forwardRef((props, ref) => {
     return(
-        <>
-        <div className="w-full h-screen relative bg-indigo-900 overflow-y-auto flex items-center justify-center"> 
-            <p>Hellowrold</p>
-        </div>
-        </>
+        <section ref={ref} id="projects" className="relative min-h-screen w-full bg-indigo-900 overflow-y-auto flex items-center justify-center overflow-hidden"> 
+            <div className="relative z-10 flex min-h-screen items-center justify-center">
+
+            </div>
+        </section>
     )
-}
+});
+
+export default Projects;
