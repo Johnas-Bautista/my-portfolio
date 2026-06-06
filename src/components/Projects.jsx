@@ -1,55 +1,55 @@
 import { forwardRef } from 'react';
 import AnimatedContent from './ui/AnimatedContent';
-import { Github, ExternalLink, Code2, Lock, Network, Eye } from 'lucide-react';
+import { Github, ExternalLink, Code2, Lock, Network, Eye, Shield } from 'lucide-react';
 
 const Projects = forwardRef((props, ref) => {
   const projects = [
     {
       id: 1,
-      title: "Network Intrusion Detection System",
-      description: "Built a Python-based IDS using Scapy to detect anomalous network traffic patterns and potential attacks",
-      tech: ["Python", "Scapy", "ML", "Network Analysis"],
-      icon: Lock,
+      title: "Network Infrastructure Topology - DOST-STII",
+      description: "Designed and mapped enterprise network architecture with 6 distinct VLANs, inter-VLAN routing, and Cisco ASA Firewall configuration for network segmentation, access control, and threat containment. Demonstrates deep understanding of network fundamentals essential for security monitoring.",
+      tech: ["Cisco Packet Tracer", "Network Design", "VLANs", "ASA Firewall", "Routing"],
+      icon: Network,
       featured: true,
-      stats: { alerts: "1K+", accuracy: "94%" },
+      stats: { vlans: "6", firewalls: "1", routes: "Dynamic" },
       links: {
-        github: "https://github.com",
+        github: "#",
         live: "#"
       }
     },
     {
       id: 2,
-      title: "Vulnerability Scanner Tool",
-      description: "Developed an automated vulnerability scanning tool that identifies common security misconfigurations in web applications",
-      tech: ["Python", "Requests", "OWASP", "Automation"],
-      icon: Network,
-      stats: { findings: "500+", scans: "100+" },
+      title: "SIEM Implementation - Centralized Logging",
+      description: "Architecting a comprehensive Security Information and Event Management system for centralized log collection, real-time threat detection, and security event correlation across distributed endpoints. Demonstrates expertise in SOC operations and incident response.",
+      tech: ["Event Correlation", "Log Aggregation", "Real-time Analytics", "Alert Management"],
+      icon: Eye,
+      stats: { status: "In Development", endpoints: "Multiple", analysis: "Real-time" },
       links: {
-        github: "https://github.com",
+        github: "#",
         live: "#"
       }
     },
     {
       id: 3,
-      title: "SOC Dashboard Prototype",
-      description: "Created a Security Operations Center dashboard for real-time monitoring and alerting of security events",
-      tech: ["React", "Node.js", "Socket.io", "Visualization"],
-      icon: Eye,
-      stats: { realtime: "true", metrics: "12+" },
+      title: "Home Network LAN Monitor",
+      description: "Developed a passive network monitoring tool for tracking local network traffic patterns and node activity. Demonstrates practical application of network protocols analysis and behavioral pattern detection for anomaly identification.",
+      tech: ["Network Monitoring", "Traffic Analysis", "Protocol Analysis", "Python"],
+      icon: Lock,
+      stats: { monitoring: "Passive", protocols: "Multi", detection: "Behavioral" },
       links: {
-        github: "https://github.com",
+        github: "#",
         live: "#"
       }
     },
     {
       id: 4,
-      title: "Malware Analysis Report Generator",
-      description: "Automated tool for analyzing malware behavior and generating comprehensive security reports with IOCs",
-      tech: ["Python", "Wireshark", "Virustotal API", "Documentation"],
-      icon: Code2,
-      stats: { reports: "50+", success: "98%" },
+      title: "Compliance & Cybersecurity Research",
+      description: "Comprehensive research on Philippine cyberlaws (Cybercrime Prevention Act), data protection regulations, and startup legal compliance frameworks. Documents security governance best practices, risk assessment methodologies, and regulatory adherence strategies.",
+      tech: ["Philippine Cybercrime Law", "Data Privacy", "Compliance Frameworks", "Risk Assessment"],
+      icon: Shield,
+      stats: { framework: "Complete", compliance: "Philippines", focus: "Startups" },
       links: {
-        github: "https://github.com",
+        github: "#",
         live: "#"
       }
     }
@@ -78,14 +78,14 @@ const Projects = forwardRef((props, ref) => {
             <div className="inline-flex items-center gap-2 mb-4">
               <Code2 className="w-5 h-5 text-emerald-400" />
               <span className="text-emerald-400 text-sm font-semibold tracking-widest uppercase">
-                Portfolio Projects
+                Core Security Projects
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Security Projects & Solutions
+              Security Infrastructure & Operations
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Real-world cybersecurity projects demonstrating technical expertise and problem-solving capabilities
+              Real-world projects demonstrating expertise in network design, security operations, monitoring, and compliance infrastructure
             </p>
           </div>
         </AnimatedContent>

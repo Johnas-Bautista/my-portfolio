@@ -7,11 +7,11 @@ const Hero = forwardRef((props, ref) => {
   const leftColumnRef = useRef(null);
   const rightColumnRef = useRef(null);
   const [logLines, setLogLines] = useState([
-    { id: 1, type: 'threat', text: '[THREAT_DETECTED] Anomalous network activity identified', active: false },
-    { id: 2, type: 'log', text: '[LOG_ANALYSIS] Parsing 2.4GB of firewall logs...', active: false },
-    { id: 3, type: 'success', text: '[SECURITY_CHECK] ✓ All systems nominal', active: false },
-    { id: 4, type: 'analysis', text: '[ANALYSIS] Running vulnerability assessment...', active: false },
-    { id: 5, type: 'packet', text: '[PACKET_CAPTURE] 1.2M packets captured', active: false },
+    { id: 1, type: 'threat', text: '[NETWORK_TOPOLOGY] DOST-STII infrastructure mapped - 6 VLANs configured', active: false },
+    { id: 2, type: 'success', text: '[SIEM_ARCHITECTURE] Centralized logging system - in development', active: false },
+    { id: 3, type: 'log', text: '[NETWORK_MONITOR] Home LAN analyzer - passive monitoring enabled', active: false },
+    { id: 4, type: 'analysis', text: '[COMPLIANCE_RESEARCH] Philippine cyberlaws & startup framework analyzed', active: false },
+    { id: 5, type: 'packet', text: '[DEV_STACK] React • Laravel • Vite • Full-stack security focus', active: false },
   ]);
 
   useEffect(() => {
@@ -122,10 +122,10 @@ const Hero = forwardRef((props, ref) => {
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="hero-headline text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                Aspiring <span className="bg-linear-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Cybersecurity Professional</span>
+                <span className="bg-linear-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">IT Professional & Developer</span>
               </h1>
               <p className="hero-subheadline text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed">
-                SOC Analyst & Security Engineer focused on threat detection, vulnerability assessment, and building resilient infrastructure. Continuous learner with hands-on experience in real-world attack simulations and defense scenarios.
+                I build and understand complex systems—which makes me better equipped to secure and monitor them. Specialized in Cybersecurity, Network Defense, and Security Operations with full-stack development expertise.
               </p>
             </div>
 

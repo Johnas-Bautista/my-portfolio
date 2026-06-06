@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Shield, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -15,6 +15,53 @@ const Navbar = ({ scrollToSection, refs }) => {
     { label: "Experience", ref: refs.laborumsRef || refs.labsRef },
     { label: "Certifications and Awards", ref: refs.certificationsRef }
   ];
+
+  // Close mobile menu on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isOpen]);
+
+  // Detect active section on scroll using IntersectionObserver
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = menuItems.findIndex((item) => item.ref?.current === entry.target);
+          if (index !== -1) {
+            setActiveIndex(index);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe all section refs
+    menuItems.forEach((item) => {
+      if (item.ref?.current) {
+        observer.observe(item.ref.current);
+      }
+    });
+
+    return () => {
+      menuItems.forEach((item) => {
+        if (item.ref?.current) {
+          observer.unobserve(item.ref.current);
+        }
+      });
+    };
+  }, [menuItems]);
 
   const handleNavClick = (ref, index) => {
     scrollToSection(ref);
@@ -42,7 +89,7 @@ const Navbar = ({ scrollToSection, refs }) => {
         {/* Animated gradient border effect */}
         <div className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden">
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-emerald-500/10 to-cyan-500/20"
+            className="absolute inset-0 bg-linear-to-r from-cyan-500/20 via-emerald-500/10 to-cyan-500/20"
             animate={{
               backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
             }}
@@ -66,12 +113,12 @@ const Navbar = ({ scrollToSection, refs }) => {
                 ]
               }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="p-2 bg-gradient-to-br from-cyan-500/20 to-emerald-500/10 rounded-lg border border-cyan-500/50"
+              className="p-2 bg-linear-to-br from-cyan-500/20 to-emerald-500/10 rounded-lg border border-cyan-500/50"
             >
               <Shield className="w-5 h-5 text-cyan-400" />
             </motion.div>
-            <span className="hidden sm:inline bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              Johnas
+            <span className="hidden sm:inline bg-linear-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+              Johnas Bautista
             </span>
           </motion.div>
 
@@ -93,7 +140,7 @@ const Navbar = ({ scrollToSection, refs }) => {
                 >
                   {/* Hover background */}
                   <motion.div
-                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-cyan-500/10 to-emerald-500/5 -z-10"
+                    className="absolute inset-0 rounded-lg bg-linear-to-r from-cyan-500/10 to-emerald-500/5 -z-10"
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.2 }}
@@ -104,7 +151,7 @@ const Navbar = ({ scrollToSection, refs }) => {
                   {activeIndex === index && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-cyan-400 to-emerald-400 rounded-full"
                       transition={{ duration: 0.3 }}
                     />
                   )}
@@ -196,7 +243,7 @@ const NetworkPacket = ({ fromIndex, toIndex }) => {
     >
       {/* Main packet node */}
       <motion.div
-        className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-emerald-400 shadow-lg"
+        className="w-3 h-3 rounded-full bg-linear-to-r from-cyan-400 to-emerald-400 shadow-lg"
         animate={{
           boxShadow: [
             "0 0 8px rgba(0, 255, 255, 0.8)",
