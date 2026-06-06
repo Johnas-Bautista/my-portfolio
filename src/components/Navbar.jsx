@@ -1,85 +1,251 @@
-import { useState } from "react";
-import { Shield } from "lucide-react";
+import { useState, useRef } from "react";
+import { Shield, Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Navbar = ({ scrollToSection, refs }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const navItemsRef = useRef([]);
 
   const menuItems = [
     { label: "Home", ref: refs.homeRef },
-    { label: "About", ref: refs.aboutRef },
-    { label: "Skills", ref: refs.skillsRef },
+    { label: "About Me", ref: refs.aboutRef },
     { label: "Projects", ref: refs.projectsRef },
-    { label: "Labs", ref: refs.labsRef },
-    { label: "Certifications", ref: refs.certificationsRef },
-    { label: "Awards", ref: refs.awardsRef },
-    { label: "Contact", ref: refs.contactRef }
+    { label: "Experience", ref: refs.laborumsRef || refs.labsRef },
+    { label: "Certifications and Awards", ref: refs.certificationsRef }
   ];
 
-  const handleNavClick = (ref) => {
+  const handleNavClick = (ref, index) => {
     scrollToSection(ref);
+    setActiveIndex(index);
     setIsOpen(false);
   };
 
+  const getPacketPath = (fromIndex, toIndex) => {
+    const distance = Math.abs(toIndex - fromIndex);
+    const direction = toIndex > fromIndex ? 1 : -1;
+    return { distance, direction };
+  };
+
   return (
-    <nav 
-      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-full max-w-6xl border border-cyan-500/20 bg-slate-900/40 backdrop-blur-md 
-        transition-all duration-300 ease-in-out ${isOpen ? "rounded-3xl p-6" : "rounded-3xl px-6 py-3"}`}>
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-2 text-white font-bold text-lg cursor-pointer select-none">
-          <div className="p-2 bg-cyan-500/10 rounded-lg border border-cyan-500/30">
-            <Shield className="w-5 h-5 text-cyan-400" />
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-full max-w-7xl">
+      {/* Main navbar container */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`relative border border-cyan-500/30 bg-slate-950/80 backdrop-blur-lg rounded-2xl transition-all duration-300 ${
+          isOpen ? "p-6" : "px-6 py-4"
+        }`}
+      >
+        {/* Animated gradient border effect */}
+        <div className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden">
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-emerald-500/10 to-cyan-500/20"
+            animate={{
+              backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            style={{ backgroundSize: "200% 200%" }}
+          />
+        </div>
+
+        <div className="relative z-10 flex items-center justify-between">
+          {/* Logo */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-2 text-white font-bold text-lg cursor-pointer select-none"
+          >
+            <motion.div
+              animate={{ 
+                boxShadow: [
+                  "0 0 10px rgba(0, 255, 255, 0.3)",
+                  "0 0 20px rgba(0, 255, 255, 0.6)",
+                  "0 0 10px rgba(0, 255, 255, 0.3)",
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="p-2 bg-gradient-to-br from-cyan-500/20 to-emerald-500/10 rounded-lg border border-cyan-500/50"
+            >
+              <Shield className="w-5 h-5 text-cyan-400" />
+            </motion.div>
+            <span className="hidden sm:inline bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+              Johnas
+            </span>
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex gap-1 items-center relative">
+            {menuItems.map((item, index) => (
+              <div key={item.label} ref={(el) => (navItemsRef.current[index] = el)}>
+                <motion.button
+                  onClick={() => handleNavClick(item.ref, index)}
+                  onHoverStart={() => setHoveredIndex(index)}
+                  onHoverEnd={() => setHoveredIndex(null)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 relative group ${
+                    activeIndex === index
+                      ? "text-cyan-300 bg-cyan-500/10"
+                      : "text-gray-300 hover:text-cyan-300"
+                  }`}
+                >
+                  {/* Hover background */}
+                  <motion.div
+                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-cyan-500/10 to-emerald-500/5 -z-10"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  {item.label}
+
+                  {/* Active indicator */}
+                  {activeIndex === index && (
+                    <motion.div
+                      layoutId="activeIndicator"
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full"
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </motion.button>
+              </div>
+            ))}
+
+            {/* Network Packet Animation */}
+            {hoveredIndex !== null && hoveredIndex !== activeIndex && (
+              <NetworkPacket fromIndex={activeIndex} toIndex={hoveredIndex} />
+            )}
           </div>
-          <span className="hidden sm:inline">Johnas</span>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="md:hidden p-2 text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </motion.button>
         </div>
 
-        {/* Desktop Links (Hidden on Mobile) */}
-        <div className="hidden md:flex gap-1 text-sm font-medium text-gray-300">
-          {menuItems.map((item) => (
-            <button 
-              key={item.label}
-              onClick={() => handleNavClick(item.ref)} 
-              className="px-3 py-2 hover:text-cyan-300 hover:bg-cyan-500/10 rounded-lg transition-all duration-200"
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Mobile Menu Button (Hamburger) */}
-        <button 
-          className="md:hidden text-gray-300 hover:text-white focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
+        {/* Mobile Menu */}
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{
+            opacity: isOpen ? 1 : 0,
+            height: isOpen ? "auto" : 0,
+          }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden overflow-hidden"
         >
-          {isOpen ? (
-            // Close (X) Icon
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            // Menu (Hamburger) Icon
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
-      </div>
-
-      {/* Mobile Menu Dropdown */}
-      {isOpen && (
-        <div className="mt-6 md:hidden flex flex-col gap-2 text-sm font-medium text-gray-300 animate-in fade-in slide-in-from-top-2 duration-200">
-          {menuItems.map((item) => (
-            <button
-              key={item.label}
-              onClick={() => handleNavClick(item.ref)}
-              className="px-4 py-3 hover:text-cyan-300 hover:bg-cyan-500/10 rounded-lg transition-all duration-200 text-left border-b border-slate-700/30 last:border-b-0"
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-      )}
+          <div className="mt-4 pt-4 border-t border-cyan-500/20 space-y-2">
+            {menuItems.map((item, index) => (
+              <motion.button
+                key={item.label}
+                onClick={() => handleNavClick(item.ref, index)}
+                whileHover={{ x: 4 }}
+                whileTap={{ scale: 0.98 }}
+                className={`w-full text-left px-4 py-3 rounded-lg font-medium text-sm transition-all duration-300 ${
+                  activeIndex === index
+                    ? "text-cyan-300 bg-cyan-500/10 border border-cyan-500/30"
+                    : "text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/5"
+                }`}
+              >
+                {item.label}
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
     </nav>
+  );
+};
+
+/* Network Packet Animation Component */
+const NetworkPacket = ({ fromIndex, toIndex }) => {
+  const packetVariants = {
+    initial: { 
+      x: 0, 
+      opacity: 0,
+      scale: 0.5,
+    },
+    animate: { 
+      x: (toIndex - fromIndex) * 120,
+      opacity: [0, 1, 1, 0],
+      scale: [0.5, 1, 1, 0.5],
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut",
+        times: [0, 0.2, 0.8, 1],
+      },
+    },
+  };
+
+  return (
+    <motion.div
+      className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+      style={{ left: `${fromIndex * 120 + 32}px` }}
+      variants={packetVariants}
+      initial="initial"
+      animate="animate"
+    >
+      {/* Main packet node */}
+      <motion.div
+        className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-emerald-400 shadow-lg"
+        animate={{
+          boxShadow: [
+            "0 0 8px rgba(0, 255, 255, 0.8)",
+            "0 0 16px rgba(0, 255, 255, 0.6)",
+            "0 0 8px rgba(0, 255, 255, 0.8)",
+          ],
+        }}
+        transition={{ duration: 0.8, repeat: Infinity }}
+      />
+
+      {/* Trailing effect */}
+      <motion.div
+        className="absolute inset-0 w-3 h-3 rounded-full border border-cyan-400/50"
+        animate={{ scale: [1, 1.5, 2], opacity: [1, 0.5, 0] }}
+        transition={{ duration: 0.8, repeat: Infinity }}
+      />
+
+      {/* Data stream visualization */}
+      <svg
+        className="absolute top-1/2 -translate-y-1/2 -left-16 pointer-events-none"
+        width="64"
+        height="8"
+        style={{ overflow: "visible" }}
+      >
+        <defs>
+          <linearGradient
+            id="packetGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stopColor="rgba(0, 255, 255, 0)" />
+            <stop offset="50%" stopColor="rgba(0, 255, 255, 0.8)" />
+            <stop offset="100%" stopColor="rgba(16, 185, 129, 0.6)" />
+          </linearGradient>
+        </defs>
+        <motion.path
+          d="M 0 4 Q 8 2, 16 4 T 32 4 T 48 4 T 64 4"
+          stroke="url(#packetGradient)"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+          animate={{ strokeDashoffset: [64, 0] }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          style={{ strokeDasharray: 64 }}
+        />
+      </svg>
+    </motion.div>
   );
 };
 

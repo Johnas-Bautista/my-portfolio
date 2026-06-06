@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { useState, useRef } from "react"
-import Home from "./components/Home"
+import HeroNew from "./components/HeroNew"
 import Navbar from "./components/Navbar"
 import About from "./components/About"
 import Skills from "./components/Skills"
@@ -13,12 +13,9 @@ import Contact from "./components/Contact"
 function App() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
-  const skillsRef = useRef(null);
   const projectsRef = useRef(null);
   const labsRef = useRef(null);
   const certificationsRef = useRef(null);
-  const awardsRef = useRef(null);
-  const contactRef = useRef(null);
 
   const scrollToSection = (elementRef) => {
     if (elementRef && elementRef.current) {
@@ -33,16 +30,16 @@ function App() {
     <div>
       <Navbar 
         scrollToSection={scrollToSection} 
-        refs={{homeRef, aboutRef, skillsRef, projectsRef, labsRef, certificationsRef, awardsRef, contactRef}}
+        refs={{homeRef, aboutRef, projectsRef, labsRef, certificationsRef}}
       />
-      <Home ref={homeRef}/>
+      <HeroNew ref={homeRef}/>
       <About ref={aboutRef}/>
-      <Skills ref={skillsRef}/>
+      <Skills />
       <Projects ref={projectsRef}/>
       <SecurityLabs ref={labsRef}/>
       <Certifications ref={certificationsRef}/>
-      <Awards ref={awardsRef}/>
-      <Contact ref={contactRef}/>
+      <Awards />
+      <Contact />
     </div>
   )
 }
