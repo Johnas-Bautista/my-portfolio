@@ -342,7 +342,7 @@ function App() {
               Email
             </a>
             <a
-              href="/resume.pdf"
+              href="/RESUME-Bautista,Johnas Jr. J.pdf"
               download
               className="inline-flex items-center gap-2 rounded-md bg-cyan-300 px-3 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
             >
@@ -416,7 +416,7 @@ function App() {
                   )
                 })}
                 <a
-                  href="/resume.pdf"
+                  href="/RESUME-Bautista,Johnas Jr. J.pdf"
                   download
                   className="inline-flex items-center gap-2 rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
                 >
