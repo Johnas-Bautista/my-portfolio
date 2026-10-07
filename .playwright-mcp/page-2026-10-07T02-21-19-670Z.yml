@@ -1,0 +1,248 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - navigation "Primary navigation" [ref=e5]:
+      - button "Go to home section" [ref=e6] [cursor=pointer]:
+        - generic [ref=e10]:
+          - generic [ref=e11]: Johnas Bautista
+          - generic [ref=e12]: SOC Cyber Command
+      - generic [ref=e13]:
+        - button "Home" [ref=e14] [cursor=pointer]
+        - button "About" [ref=e15] [cursor=pointer]
+        - button "Experience" [ref=e16] [cursor=pointer]
+        - button "Projects" [ref=e17] [cursor=pointer]
+        - button "Skills" [ref=e18] [cursor=pointer]
+        - button "Contact" [ref=e19] [cursor=pointer]
+      - generic [ref=e20]:
+        - link "Email" [ref=e21] [cursor=pointer]:
+          - /url: mailto:johnas.bautista@example.com
+        - link "Resume" [ref=e25] [cursor=pointer]:
+          - /url: /src/assets/pdf/RESUME-Bautista,Johnas%20Jr.%20J..pdf
+  - main [ref=e28]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]: Monitoring secure software, logs, and network telemetry
+        - heading "SOC Analyst & Security Software Developer" [level=1] [ref=e35]
+        - paragraph [ref=e36]: Bridging secure software engineering with active threat monitoring, SIEM analysis, and defensive network operations.
+        - generic [ref=e37]:
+          - link "GitHub" [ref=e38] [cursor=pointer]:
+            - /url: https://github.com/johnas-bautista
+          - link "LinkedIn" [ref=e42] [cursor=pointer]:
+            - /url: https://linkedin.com/in/johnas-bautista
+          - link "Email" [ref=e47] [cursor=pointer]:
+            - /url: mailto:johnas.bautista@example.com
+          - link "Download Resume" [ref=e51] [cursor=pointer]:
+            - /url: /src/assets/pdf/RESUME-Bautista,Johnas%20Jr.%20J..pdf
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - paragraph [ref=e56]: ISC2 CC
+            - paragraph [ref=e57]: Certified in Cybersecurity
+          - generic [ref=e58]:
+            - paragraph [ref=e59]: Wazuh
+            - paragraph [ref=e60]: SIEM home lab
+          - generic [ref=e61]:
+            - paragraph [ref=e62]: BSIT
+            - paragraph [ref=e63]: PUP Taguig
+      - generic [ref=e64]:
+        - generic [ref=e65]: analyst-console
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - button "whoami" [pressed] [ref=e75] [cursor=pointer]
+            - button "cat skills.txt" [ref=e76] [cursor=pointer]
+            - button "run incident_report.sh" [ref=e77] [cursor=pointer]
+          - generic [ref=e78]:
+            - paragraph [ref=e79]: "Last login: SOC console from 127.0.0.1"
+            - paragraph [ref=e80]:
+              - text: johnas@soc-command:~$
+              - generic [aria-hidden] [ref=e81]: _
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - paragraph [ref=e84]: Alert Review
+              - paragraph [ref=e85]: Real-time
+            - generic [ref=e86]:
+              - paragraph [ref=e87]: IoC Workflow
+              - paragraph [ref=e88]: OSINT
+            - generic [ref=e89]:
+              - paragraph [ref=e90]: Network Mode
+              - paragraph [ref=e91]: Isolated
+    - generic [ref=e93]:
+      - figure "Role SOC Analyst Intern Discipline Secure Engineering Base Taguig, Metro Manila" [ref=e94]:
+        - img "Johnas J. Bautista" [ref=e95]
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - generic [ref=e98]: Role
+            - generic [ref=e99]: SOC Analyst Intern
+          - generic [ref=e100]:
+            - generic [ref=e101]: Discipline
+            - generic [ref=e102]: Secure Engineering
+          - generic [ref=e103]:
+            - generic [ref=e104]: Base
+            - generic [ref=e105]: Taguig, Metro Manila
+      - generic [ref=e106]:
+        - paragraph [ref=e107]: About Me & Career Evolution
+        - heading "Developer instincts applied to defensive security." [level=2] [ref=e113]
+        - generic [ref=e114]:
+          - paragraph [ref=e115]: "I started as a Full-Stack Developer specializing in secure web architecture: REST APIs, custom authentication, password reset flows, session control, and Content Security Policy headers."
+          - paragraph [ref=e116]: That foundation became my bridge into Cybersecurity and SOC operations, where I apply developer insights to threat triage, log analysis, and network defense. Understanding how systems are built helps me investigate how they fail, how attackers move, and how defenders can respond with clearer evidence.
+        - generic [ref=e122]:
+          - heading "Education" [level=3] [ref=e123]
+          - paragraph [ref=e124]: Bachelor of Science in Information Technology (BSIT) - Polytechnic University of the Philippines (PUP Taguig).
+    - generic [ref=e126]:
+      - paragraph [ref=e127]: Professional Experience
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - heading "SOC Analyst Intern" [level=2] [ref=e134]
+          - paragraph [ref=e135]: Department of Science and Technology - Science and Technology Information Institute (DOST-STII)
+          - generic [ref=e136]: Alert triage, incident reporting, secure guest access
+        - generic [ref=e140]:
+          - generic [ref=e142]:
+            - generic [ref=e143]: "01"
+            - paragraph [ref=e144]: Triaged real-time alerts in Wazuh SIEM across multiple public-facing servers.
+          - generic [ref=e146]:
+            - generic [ref=e147]: "02"
+            - paragraph [ref=e148]: Verified Indicators of Compromise using OSINT threat intelligence to isolate True Positives and delivered structured incident reports to supervisors.
+          - generic [ref=e150]:
+            - generic [ref=e151]: "03"
+            - paragraph [ref=e152]: Engineered and deployed a Guest Wi-Fi Captive Portal to secure guest access and isolate internal network traffic.
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - generic [ref=e156]:
+          - paragraph [ref=e157]: Practical Hands-On Projects
+          - heading "Labs, architecture, and secure systems." [level=2] [ref=e160]
+        - tablist "Project filters" [ref=e161]:
+          - tab "All" [selected] [ref=e162] [cursor=pointer]
+          - tab "SIEM & Threat Hunting" [ref=e163] [cursor=pointer]
+          - tab "Network Security & Architecture" [ref=e164] [cursor=pointer]
+          - tab "Secure Software Engineering" [ref=e165] [cursor=pointer]
+      - generic [ref=e166]:
+        - article [ref=e167]:
+          - generic [ref=e168]: SIEM & Threat Hunting
+          - heading "Isolated Wazuh SIEM & Threat Emulation Lab" [level=3] [ref=e178]
+          - paragraph [ref=e179]: Set up a virtual lab in VirtualBox containing a Wazuh SIEM Server, a vulnerable Metasploitable endpoint, and an Attacker VM in strict host-isolated networking.
+          - generic [ref=e180]:
+            - paragraph [ref=e181]: Focus
+            - paragraph [ref=e182]: Analyzed real-time telemetry, created custom detection rules, and captured active exploit traffic.
+        - article [ref=e183]:
+          - generic [ref=e184]: Network Security & Architecture
+          - heading "DOST-STII Blueprint Network Infrastructure" [level=3] [ref=e192]
+          - paragraph [ref=e193]: Designed and modeled a mirror logical network topology replicating DOST-STII's enterprise network in Cisco Packet Tracer.
+          - generic [ref=e194]:
+            - paragraph [ref=e195]: Focus
+            - paragraph [ref=e196]: Configured VLAN segmentation, pfSense routing rules, and Cisco IOS device security baselines.
+        - article [ref=e197]:
+          - generic [ref=e198]: Secure Software Engineering
+          - heading "ODRMS Online Document Request & Management System" [level=3] [ref=e204]
+          - paragraph [ref=e205]: Developed a high-security document management platform using Laravel, PHP, and MySQL.
+          - generic [ref=e206]:
+            - paragraph [ref=e207]: Focus
+            - paragraph [ref=e208]: Secured API endpoints with strict authentication and authorization, implemented tamper-proof audit log accounting, integrated OTP-based email password resets, and enforced strong Content Security Policies.
+    - generic [ref=e210]:
+      - paragraph [ref=e211]: Certifications & Badges
+      - heading "Validated security learning and practice." [level=2] [ref=e215]
+      - generic [ref=e216]:
+        - paragraph [ref=e221]: ISC2 Certified in Cybersecurity (CC)
+        - paragraph [ref=e226]: Cyber Threat Monitoring Level 1 - Radenta Academy (TESDA Accredited Institutional Assessment)
+        - paragraph [ref=e231]: Fortinet Network Security Expert (NSE 1, 2, and 3)
+        - paragraph [ref=e236]: TryHackMe Hacker Holiday Badge
+    - generic [ref=e238]:
+      - paragraph [ref=e239]: Technical Skill Matrix
+      - heading "Operational coverage from SIEM to secure code." [level=2] [ref=e243]
+      - generic [ref=e244]:
+        - article [ref=e245]:
+          - generic [ref=e246]:
+            - heading "Security Operations & SIEM" [level=3] [ref=e252]
+            - generic [ref=e253]: 88%
+          - progressbar "Security Operations & SIEM proficiency" [ref=e254]
+          - generic [ref=e256]:
+            - generic [ref=e257]: Wazuh SIEM
+            - generic [ref=e258]: OSINT
+            - generic [ref=e259]: Threat Triaging
+            - generic [ref=e260]: Cyber Kill Chain
+            - generic [ref=e261]: Pyramid of Pain
+            - generic [ref=e262]: MITRE ATT&CK
+            - generic [ref=e263]: Unified Kill Chain
+        - article [ref=e264]:
+          - generic [ref=e265]:
+            - heading "Network Defense & Traffic Analysis" [level=3] [ref=e273]
+            - generic [ref=e274]: 84%
+          - progressbar "Network Defense & Traffic Analysis proficiency" [ref=e275]
+          - generic [ref=e277]:
+            - generic [ref=e278]: Wireshark
+            - generic [ref=e279]: tcpdump
+            - generic [ref=e280]: Nmap
+            - generic [ref=e281]: pfSense
+            - generic [ref=e282]: Cisco IOS
+            - generic [ref=e283]: Packet Tracer
+            - generic [ref=e284]: ARP Analysis
+            - generic [ref=e285]: TCP/IP
+            - generic [ref=e286]: OSI Model
+        - article [ref=e287]:
+          - generic [ref=e288]:
+            - heading "Penetration Testing & Tools" [level=3] [ref=e293]
+            - generic [ref=e294]: 76%
+          - progressbar "Penetration Testing & Tools proficiency" [ref=e295]
+          - generic [ref=e297]:
+            - generic [ref=e298]: Burp Suite
+            - generic [ref=e299]: SQLMap
+            - generic [ref=e300]: Hydra
+            - generic [ref=e301]: Hashcat
+            - generic [ref=e302]: Metasploit
+        - article [ref=e303]:
+          - generic [ref=e304]:
+            - heading "Secure Development & Scripting" [level=3] [ref=e311]
+            - generic [ref=e312]: 90%
+          - progressbar "Secure Development & Scripting proficiency" [ref=e313]
+          - generic [ref=e315]:
+            - generic [ref=e316]: Python
+            - generic [ref=e317]: Shell Scripting (Linux Bash)
+            - generic [ref=e318]: PowerShell
+            - generic [ref=e319]: PHP
+            - generic [ref=e320]: Laravel
+            - generic [ref=e321]: JavaScript
+            - generic [ref=e322]: React
+            - generic [ref=e323]: Java
+            - generic [ref=e324]: C++
+            - generic [ref=e325]: C#
+            - generic [ref=e326]: COBOL
+        - article [ref=e327]:
+          - generic [ref=e328]:
+            - heading "Infrastructure & Utilities" [level=3] [ref=e334]
+            - generic [ref=e335]: 82%
+          - progressbar "Infrastructure & Utilities proficiency" [ref=e336]
+          - generic [ref=e338]:
+            - generic [ref=e339]: Git
+            - generic [ref=e340]: Postman
+            - generic [ref=e341]: XAMPP
+            - generic [ref=e342]: VirtualBox
+            - generic [ref=e343]: Linux Administration
+    - generic [ref=e345]:
+      - generic [ref=e346]:
+        - paragraph [ref=e347]: Contact
+        - heading "Open to security, SOC, and secure development work." [level=2] [ref=e351]
+        - paragraph [ref=e352]: Send a message for cybersecurity opportunities, internships, technical collaboration, or secure software work.
+        - generic [ref=e353]:
+          - link "GitHub" [ref=e354] [cursor=pointer]:
+            - /url: https://github.com/johnas-bautista
+          - link "LinkedIn" [ref=e363] [cursor=pointer]:
+            - /url: https://linkedin.com/in/johnas-bautista
+          - link "Email" [ref=e373] [cursor=pointer]:
+            - /url: mailto:johnas.bautista@example.com
+      - generic [ref=e382]:
+        - generic [ref=e383]:
+          - generic [ref=e384]:
+            - generic [ref=e385]: Name
+            - textbox "Name" [ref=e386]
+          - generic [ref=e387]:
+            - generic [ref=e388]: Email
+            - textbox "Email" [ref=e389]
+        - generic [ref=e391]:
+          - generic [ref=e392]: Subject
+          - textbox "Subject" [ref=e393]
+        - generic [ref=e394]:
+          - generic [ref=e395]: Message
+          - textbox "Message" [ref=e396]:
+            - /placeholder: Opportunity, scope, or collaboration details
+        - button "Send Message" [ref=e397] [cursor=pointer]
+  - contentinfo [ref=e401]:
+    - generic [ref=e402]:
+      - paragraph [ref=e403]: Copyright 2026 Johnas J. Bautista. All rights reserved.
+      - paragraph [ref=e404]: Enforced with custom Content Security Policy (CSP) & Secure Coding Practices

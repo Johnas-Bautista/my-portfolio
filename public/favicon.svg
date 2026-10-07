@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Shield favicon">
+  <rect width="64" height="64" rx="12" fill="#0f172a"/>
+  <path d="M32 8 52 16v14c0 13-8 22-20 26-12-4-20-13-20-26V16l20-8Z" fill="#22d3ee" opacity=".18"/>
+  <path d="M32 12 48 18v12c0 10-6 18-16 22-10-4-16-12-16-22V18l16-6Z" fill="none" stroke="#67e8f9" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M22 33h20M26 25h12M28 41h8" stroke="#86efac" stroke-width="4" stroke-linecap="round"/>
+</svg>
