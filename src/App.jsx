@@ -26,7 +26,7 @@ import {
   X,
   Zap,
 } from "lucide-react"
-import resumeUrl from "./assets/pdf/RESUME-Bautista,Johnas Jr. J.pdf"
+import resumeUrl from "./assets/pdf/resume.pdf"
 import profileImage from "./assets/GRAD PIC2.png"
 import isc2Image from "./assets/certs/isc2-cc.png"
 import radentaImage from "./assets/certs/radenta-ctm1.jpg"
