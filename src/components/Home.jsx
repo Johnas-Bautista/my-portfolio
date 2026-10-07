@@ -64,7 +64,7 @@ const Home = forwardRef((props, ref) => {
                             {/* CTA Buttons */}
                             <div className="flex flex-col md:flex-row gap-4">
                                 <a
-                                    href="/src/assets/pdf/RESUME-Bautista,Johnas Jr. J..pdf"
+                                    href="/src/assets/pdf/RESUME-Bautista,Johnas Jr. J.pdf"
                                     download
                                     className="inline-flex items-center justify-center px-8 py-3 bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition duration-300"
                                 >

@@ -62,14 +62,16 @@ const Hero = forwardRef((props, ref) => {
 
       // Animate log lines appearing
       setTimeout(() => {
-        logLines.forEach((line, idx) => {
-          setTimeout(() => {
-            setLogLines(prev => {
-              const updated = [...prev];
+      Array.from({ length: 5 }).forEach((_, idx) => {
+        setTimeout(() => {
+          setLogLines(prev => {
+            const updated = [...prev];
+            if (updated[idx]) {
               updated[idx] = { ...updated[idx], active: true };
-              return updated;
-            });
-          }, idx * 200);
+            }
+            return updated;
+          });
+        }, idx * 200);
         });
       }, 1000);
     }, containerRef);
@@ -145,7 +147,7 @@ const Hero = forwardRef((props, ref) => {
 
               <button className="relative inline-flex items-center justify-center px-8 py-4 border-2 border-cyan-500/50 hover:border-cyan-400 text-cyan-400 hover:text-cyan-300 font-semibold rounded-lg transition duration-300 group">
                 <a
-                  href="/src/assets/pdf/RESUME-Bautista,Johnas Jr. J..pdf"
+                  href="/src/assets/pdf/RESUME-Bautista,Johnas Jr. J.pdf"
                   download
                   className="flex items-center gap-2 w-full"
                 >

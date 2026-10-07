@@ -1,6 +1,8 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import { Shield, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+
+const Motion = motion;
 
 const Navbar = ({ scrollToSection, refs }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,13 +10,13 @@ const Navbar = ({ scrollToSection, refs }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const navItemsRef = useRef([]);
 
-  const menuItems = [
+  const menuItems = useMemo(() => [
     { label: "Home", ref: refs.homeRef },
     { label: "About Me", ref: refs.aboutRef },
     { label: "Projects", ref: refs.projectsRef },
     { label: "Experience", ref: refs.laborumsRef || refs.labsRef },
     { label: "Certifications and Awards", ref: refs.certificationsRef }
-  ];
+  ], [refs.aboutRef, refs.certificationsRef, refs.homeRef, refs.laborumsRef, refs.labsRef, refs.projectsRef]);
 
   // Close mobile menu on scroll
   useEffect(() => {
@@ -67,12 +69,6 @@ const Navbar = ({ scrollToSection, refs }) => {
     scrollToSection(ref);
     setActiveIndex(index);
     setIsOpen(false);
-  };
-
-  const getPacketPath = (fromIndex, toIndex) => {
-    const distance = Math.abs(toIndex - fromIndex);
-    const direction = toIndex > fromIndex ? 1 : -1;
-    return { distance, direction };
   };
 
   return (
