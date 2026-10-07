@@ -26,7 +26,6 @@ import {
   X,
   Zap,
 } from "lucide-react"
-import resumeUrl from "./assets/pdf/resume.pdf"
 import profileImage from "./assets/GRAD PIC2.png"
 import isc2Image from "./assets/certs/isc2-cc.png"
 import radentaImage from "./assets/certs/radenta-ctm1.jpg"
@@ -343,7 +342,7 @@ function App() {
               Email
             </a>
             <a
-              href={resumeUrl}
+              href="/resume.pdf"
               download
               className="inline-flex items-center gap-2 rounded-md bg-cyan-300 px-3 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
             >
@@ -417,7 +416,7 @@ function App() {
                   )
                 })}
                 <a
-                  href={resumeUrl}
+                  href="/resume.pdf"
                   download
                   className="inline-flex items-center gap-2 rounded-md bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-200"
                 >
