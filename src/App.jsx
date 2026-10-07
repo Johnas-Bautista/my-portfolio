@@ -124,7 +124,7 @@ const CERTIFICATIONS = [
     title: "ISC2 Certified in Cybersecurity (CC)",
     issuer: "ISC2",
     images: [{ src: isc2Image, label: "Certified in Cybersecurity" }],
-    credentialUrl: "",
+    credentialUrl: "https://www.credly.com/badges/014de744-1048-47cc-ae76-e47bea049ceb/public_url",
   },
   {
     title: "Cyber Threat Monitoring Level 1",
@@ -136,17 +136,17 @@ const CERTIFICATIONS = [
     title: "Fortinet Network Security Expert (NSE 1, 2, and 3)",
     issuer: "Fortinet",
     images: [
-      { src: fortinetNse1, label: "NSE 1" },
-      { src: fortinetNse2, label: "NSE 2" },
-      { src: fortinetNse3, label: "NSE 3" },
+      { src: fortinetNse1, label: "NSE 1", credentialUrl: "https://www.credly.com/badges/7f8c8ba9-ef7f-4288-b0de-7d30ed0736f2/public_url" },
+      { src: fortinetNse2, label: "NSE 2", credentialUrl: "https://www.credly.com/badges/71ea560c-9dff-4b58-9769-879b709e7c98/public_url" },
+      { src: fortinetNse3, label: "NSE 3", credentialUrl: "https://www.credly.com/badges/59bca134-7e44-4d73-957d-b41d8ae5618e/public_url" },
     ],
-    credentialUrl: "",
+    credentialUrl: "", // leave empty so no extra button shows at the bottom
   },
   {
     title: "TryHackMe Hacker Holiday Badge",
     issuer: "TryHackMe",
-    images: [{ src: tryhackmeImage, label: "Badge" }],
-    credentialUrl: "",
+    images: [{ src: tryhackmeImage, label: "Certificate of Completion" }],
+    credentialUrl: "https://github.com/Johnas-Bautista/hacker-holiday",
   },
 ]
 
@@ -807,11 +807,25 @@ function CertificateModal({ cert, onClose }) {
                 alt={`${cert.title} - ${image.label}`}
                 className="w-full rounded-md bg-slate-950 object-contain"
               />
-              {cert.images.length > 1 ? (
-                <figcaption className="mt-2 font-mono text-sm text-slate-400">
-                  {image.label}
-                </figcaption>
-              ) : null}
+              <figcaption className="mt-2 flex flex-wrap items-center justify-between gap-3">
+                {cert.images.length > 1 ? (
+                  <span className="font-mono text-sm text-slate-400">{image.label}</span>
+                ) : (
+                  <span />
+                )}
+
+                {image.credentialUrl ? (
+                  <a
+                    href={image.credentialUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-md bg-cyan-300 px-3 py-1.5 text-sm font-semibold text-slate-950 hover:bg-cyan-200"
+                  >
+                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    Verify {image.label}
+                  </a>
+                ) : null}
+              </figcaption>
             </figure>
           ))}
         </div>
